@@ -1,89 +1,60 @@
-🎓 Student Performance Prediction
-📌 Overview
-This project predicts whether a student will pass or fail based on various academic and behavioral features using a Random Forest Classifier. The aim is to identify students at risk and enable timely academic interventions.
+# 🎓 Student Performance Prediction
 
-We use a dataset that includes features such as absences, weekly study time, tutoring support, and parental involvement. The model is trained and evaluated using scikit-learn tools, with key metrics like accuracy, precision, recall, and a confusion matrix heatmap.
+## 📖 Project Description
 
-📂 Dataset
-File: 8. Student Performance Prediction.csv
+This project aims to predict whether a student will **pass** or **fail** based on academic behavior and support factors. The model leverages a supervised learning approach using a **Random Forest Classifier**, offering interpretable and accurate predictions. The goal is to assist educators and institutions in identifying at-risk students early and enabling data-driven interventions.
 
-Source: Uploaded directly in Google Colab
+---
 
-Target Variable: Pass (1 = Pass, 0 = Fail)
+## 📁 Dataset Information
 
-Label Creation: A new Pass column is derived from GPA values:
+- **File Name:** `8. Student Performance Prediction.csv`
+- **Target Variable:** `Pass`
+- **Label Definition:**
+  - GPA ≥ 2.0 → **Pass** (1)
+  - GPA < 2.0 → **Fail** (0)
 
-GPA >= 2.0 → Pass (1)
+---
 
-GPA < 2.0 → Fail (0)
+## 🔍 Features Used
 
-📊 Selected Features
-The following features were used for training the model:
+| Feature             | Description                                      |
+|---------------------|--------------------------------------------------|
+| `Absences`          | Number of school days missed                    |
+| `StudyTimeWeekly`   | Hours spent studying per week                   |
+| `Tutoring`          | Access to tutoring services (0 = No, 1 = Yes)   |
+| `ParentalSupport`   | Parental academic support (0 = No, 1 = Yes)     |
 
-Absences: Number of days the student was absent
+---
 
-StudyTimeWeekly: Hours spent studying per week
+## 🧠 Methodology
 
-Tutoring: Whether the student receives tutoring (1 = Yes, 0 = No)
+### 1. Data Preparation
+- Dataset uploaded via `google.colab.files`.
+- Created a binary `Pass` column derived from the GPA score.
 
-ParentalSupport: Whether the student receives parental support (1 = Yes, 0 = No)
+### 2. Feature Selection
+- Selected key features contributing to academic success.
+- Focused on simplicity and interpretability.
 
-🧠 Model Methodology
-🛠️ 1. Data Preparation
-Dataset loaded and preprocessed in Google Colab.
+### 3. Model Building
+- **Algorithm:** `RandomForestClassifier`
+- **Reason for Choice:** High accuracy, robustness, and ability to handle both categorical and numerical data.
+- **Data Split:** 70% for training, 30% for testing (`train_test_split`).
 
-Binary classification target (Pass) generated from GPA.
+### 4. Evaluation
+- **Confusion Matrix:** Visualized using a heatmap (Seaborn).
+- **Metrics Used:**
+  - **Accuracy:** Overall correctness of the model
+  - **Precision:** Proportion of predicted passes that were correct
+  - **Recall:** Proportion of actual passes identified correctly
 
-🔍 2. Feature Selection
-Focused on meaningful academic and support-related features.
+---
 
-No unnecessary or high-dimensional features included for simplicity.
+## 📈 Results (Example Output)
 
-🤖 3. Model Building
-Model: RandomForestClassifier (scikit-learn)
-
-Reason: Handles mixed data types well and provides high accuracy with minimal tuning.
-
-Split: 70% training / 30% testing using train_test_split.
-
-📈 4. Evaluation
-Confusion Matrix visualized using a heatmap (Seaborn).
-
-Metrics used:
-
-Accuracy
-
-Precision
-
-Recall
-
-📌 Sample Output
-makefile
-Copy
-Edit
+```plaintext
 Accuracy: 0.85
 Precision: 0.84
 Recall: 0.86
-📊 Confusion Matrix is plotted to visually interpret classification performance.
 
-📦 Requirements
-Install the required libraries using:
-
-bash
-Copy
-Edit
-pip install pandas seaborn matplotlib scikit-learn
-🧪 How to Run
-Upload the CSV file to Colab using:
-
-python
-Copy
-Edit
-from google.colab import files
-uploaded = files.upload()
-Follow the steps to train and evaluate the model (as provided in the Python script).
-
-View the printed metrics and the plotted confusion matrix heatmap.
-
-📜 License
-This project is open-source and free to use for academic and non-commercial purposes.
